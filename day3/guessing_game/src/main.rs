@@ -1,0 +1,13 @@
+use std::io;
+
+fn main() {
+    println!("Guess a number:");
+    println!("Please enter your guess:");
+    let mut guess = String::new(); //  variables, references are immutable by default.
+
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read line");
+
+    println!("You guessed: {guess}");
+}
