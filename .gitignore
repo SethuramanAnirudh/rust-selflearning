@@ -1,4 +1,9 @@
-/target
+# Rust build artifacts (ignore everywhere)
+target/
+**/target/
+
+# Backup files
 **/*.rs.bk
-Cargo.lock
-*.log
+
+# OS junk
+.DS_Store
