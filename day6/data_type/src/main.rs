@@ -21,5 +21,20 @@ fn main() {
         "Integer operations: {},{},{},{},{},{}",
         _sum, _diff, _prod, _quotient, _trunc, _remainder
     );
+    let c = 'A';
+    let s: char = 'w';
+    println!("Characters: {}, {}", c, s);
+
+    let string: &str = "Hello,Rust!";
+    println!("String {}", string);
+    let tup: (i32, f64, u8) = (11, 3.14, 255);
+    let (a, b, c) = tup;
+    println!("Tuple elements: {}, {}, {}", a, b, c);
+    let first_element = tup.0;
+    println!("First element of tuple: {}", first_element); // should print 11
+    let arr: [i32; 6] = [1, 2, 3, 40, 5, 6];
+    let first_array_ele = arr[0];
+    println!("First element of array: {}", first_array_ele); // should print 1
+    println!("Fourth element of array: {}", arr[3]); // should print 40
     println!("Data types demo complete!");
 }
