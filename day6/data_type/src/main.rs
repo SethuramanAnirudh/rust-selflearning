@@ -36,5 +36,39 @@ fn main() {
     let first_array_ele = arr[0];
     println!("First element of array: {}", first_array_ele); // should print 1
     println!("Fourth element of array: {}", arr[3]); // should print 40
+
+    println!("Enter a array index to access:");
+    let mut index_input = String::new();
+    std::io::stdin()
+        .read_line(&mut index_input)
+        .expect("Failed to read line");
+    // let index: usize = index_input
+    //     .trim()
+    //     .parse()
+    //     .expect("please enter a numerical number");
+    let index: usize = match index_input.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Please enter a valid number");
+            return;
+        }
+    };
+    match arr.get(index) {
+        Some(element) => {
+            println!("the value of element at index {} is: {}", index, element);
+        }
+        None => {
+            println!(
+                "Index out of bounds! valid indices are from 0 to {}",
+                arr.len() - 1
+            );
+            return;
+        }
+    }
+    let element = arr[index];
+    println!(
+        "The value of the element at index {} is: {}",
+        index, element
+    );
     println!("Data types demo complete!");
 }
