@@ -18,6 +18,10 @@ fn main() {
     println!("the value of s3 is: {s3}");
     let s4 = takes_and_gives_back(s3);
     println!("the value of s4 is: {s4}");
+
+    let a = String::from("Anirudh");
+    let (b, len) = calculate_length(a);
+    println!("the length of '{}' is {}",b,len);
 }
 fn takes_ownership(some_string: String) {
     println!("the value of some_string in takes_ownership is: {some_string}");
@@ -32,4 +36,8 @@ fn gives_ownership() -> String {
 fn takes_and_gives_back(a_string: String) -> String {
     println!("the value of a_string in takes_and_gives_back is: {a_string}");
     a_string
+}
+fn calculate_length(s: String) -> (String, usize) {
+    let length = s.len();
+    (s,length)
 }
