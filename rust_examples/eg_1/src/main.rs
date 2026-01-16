@@ -1,8 +1,8 @@
-fn main() {
-    // println!("Hello, world!");
-    test_sum_array();
-}
-// #[test]
+// fn main() {
+//     // println!("Hello, world!");
+//     test_sum_array();
+// }
+#[test]
 fn test_sum_array() {
     assert_eq!(sum_array(&[1,2,3,4,5,6]),21);
     assert_eq!(sum_array(&[]),0);
