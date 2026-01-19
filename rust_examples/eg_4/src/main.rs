@@ -13,6 +13,13 @@ fn reverse_array_without_extra_memory(arr: &mut [i32]) {
         end -= 1;
     }
 }
+fn string_length(s: &String) -> usize {
+    let mut count = 0;
+    for _ in s.chars() {
+        count += 1;
+    }
+    count
+}
 #[test]
 fn test_revenge() {
     let mut arr1 = [1, 2, 34, 5, 6, 4];
@@ -30,4 +37,11 @@ fn test_revenge() {
     let mut arr4 = [1, 2, 22, 33, 22, 33, 11, 44, 55];
     reverse_array_without_extra_memory(&mut arr4);
     assert_eq!(arr4, [55, 44, 11, 33, 22, 33, 22, 2, 1]);
+
+    let s1 = String::from("hello");
+    assert_eq!(string_length(&s1), 5);
+    let s2 = String::from("");
+    assert_eq!(string_length(&s2), 0);
+    let s3 = String::from("Anirudh Sethuraman");
+    assert_eq!(string_length(&s3), 18);
 }
