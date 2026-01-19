@@ -20,6 +20,22 @@ fn string_length(s: &String) -> usize {
     }
     count
 }
+fn is_palindrome(s: &String) -> bool {
+    let chars: Vec<char> = s.chars().collect();
+    if chars.len() == 0 {
+        return true;
+    }
+    let mut left = 0;
+    let mut right = chars.len() - 1;
+    while left < right {
+        if chars[left] != chars[right] {
+            return false;
+        }
+        left += 1;
+        right -= 1;
+    }
+    true
+}
 #[test]
 fn test_revenge() {
     let mut arr1 = [1, 2, 34, 5, 6, 4];
@@ -44,4 +60,13 @@ fn test_revenge() {
     assert_eq!(string_length(&s2), 0);
     let s3 = String::from("Anirudh Sethuraman");
     assert_eq!(string_length(&s3), 18);
+
+    let p1 = String::from("racecar");
+    assert_eq!(is_palindrome(&p1), true);
+    let p2 = String::from("hello");
+    assert_eq!(is_palindrome(&p2), false);
+    let p3 = String::from("");
+    assert_eq!(is_palindrome(&p3), true);
+    let p4 = String::from("malayalam");
+    assert_eq!(is_palindrome(&p4), true);
 }
