@@ -3,6 +3,10 @@ fn main() {
     println!("Number of vowels: {}", vowel_count);
     let digit_count = count_digits(&String::from("Ani678rudh1234"));
     println!("Number of digits: {}", digit_count);
+    let only_digits = is_only_digits(&String::from("1234567890"));
+    println!("Is only digits: {}", only_digits);
+    let not_only_digits = is_only_digits(&String::from("Ani12345"));
+    println!("Is only digits: {}", not_only_digits);
 }
 fn count_vowels(s: &String) -> usize {
     let mut count = 0;
@@ -32,4 +36,13 @@ fn count_digits(s: &String) -> usize {
         }
     }
     count
+}
+
+fn is_only_digits(s: &String) -> bool {
+    for c in s.chars() {
+        if c < '0' || c > '9' {
+            return false;
+        }
+    }
+    return true;
 }
