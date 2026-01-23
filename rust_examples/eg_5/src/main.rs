@@ -21,9 +21,14 @@ fn main() {
     println!("Number of words: {}", word_count4);
 
     let original = String::from("Hello, Rust!");
-    let reversed = reverse_string(&original);
+    let reversed = reverse_string_rev(&original);
     println!("Original string: {}", original);
     println!("Reversed string: {}", reversed);
+
+    let original2 = "Hello, World!";
+    let reversed2 = reverse_string(original2);
+    println!("Original string: {}", original2);
+    println!("Reversed string: {}", reversed2);
 }
 fn count_vowels(s: &String) -> usize {
     let mut count = 0;
@@ -76,10 +81,23 @@ fn count_words(s: &String) -> usize {
     }
     count
 }
-fn reverse_string(s: &String) -> String {
+fn reverse_string_rev(s: &String) -> String {
     let mut reversed = String::new();
     for c in s.chars().rev() {
         reversed.push(c);
     }
     reversed
+}
+fn reverse_string(s: &str) -> String {
+    let chars: Vec<char> = s.chars().collect();
+    let mut result = String::new();
+
+    let mut i = chars.len();
+
+    while i > 0 {
+        i -= 1;
+        result.push(chars[i]);
+    }
+
+    result
 }
