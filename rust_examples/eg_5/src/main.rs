@@ -19,6 +19,11 @@ fn main() {
 
     let word_count4 = count_words(&String::from("SingleWord"));
     println!("Number of words: {}", word_count4);
+
+    let original = String::from("Hello, Rust!");
+    let reversed = reverse_string(&original);
+    println!("Original string: {}", original);
+    println!("Reversed string: {}", reversed);
 }
 fn count_vowels(s: &String) -> usize {
     let mut count = 0;
@@ -70,4 +75,11 @@ fn count_words(s: &String) -> usize {
         }
     }
     count
+}
+fn reverse_string(s: &String) -> String {
+    let mut reversed = String::new();
+    for c in s.chars().rev() {
+        reversed.push(c);
+    }
+    reversed
 }
