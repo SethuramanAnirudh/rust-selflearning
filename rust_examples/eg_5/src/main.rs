@@ -29,6 +29,9 @@ fn main() {
     let reversed2 = reverse_string(original2);
     println!("Original string: {}", original2);
     println!("Reversed string: {}", reversed2);
+
+    println!("{:?}", first_vowel("hello")); // Some('e')
+    println!("{:?}", first_vowel("rhythm")); // None
 }
 fn count_vowels(s: &String) -> usize {
     let mut count = 0;
@@ -91,13 +94,28 @@ fn reverse_string_rev(s: &String) -> String {
 fn reverse_string(s: &str) -> String {
     let chars: Vec<char> = s.chars().collect();
     let mut result = String::new();
-
     let mut i = chars.len();
-
     while i > 0 {
         i -= 1;
         result.push(chars[i]);
     }
-
     result
+}
+fn first_vowel(s: &str) -> Option<char> {
+    for c in s.chars() {
+        if c == 'a'
+            || c == 'e'
+            || c == 'i'
+            || c == 'o'
+            || c == 'u'
+            || c == 'A'
+            || c == 'E'
+            || c == 'I'
+            || c == 'O'
+            || c == 'U'
+        {
+            return Some(c);
+        }
+    }
+    None
 }
