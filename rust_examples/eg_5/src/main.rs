@@ -32,6 +32,10 @@ fn main() {
 
     println!("{:?}", first_vowel("hello")); // Some('e')
     println!("{:?}", first_vowel("rhythm")); // None
+
+    let name = "Anirudh";
+    let greeting = greet(name);
+    println!("{}", greeting); // "Hello, Anirudh!"
 }
 fn count_vowels(s: &String) -> usize {
     let mut count = 0;
@@ -118,4 +122,10 @@ fn first_vowel(s: &str) -> Option<char> {
         }
     }
     None
+}
+fn greet(name: &str) -> String {
+    let mut message = String::from("Hello, ");
+    message.push_str(name);
+    message.push('!');
+    message
 }
