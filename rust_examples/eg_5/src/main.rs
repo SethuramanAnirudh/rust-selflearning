@@ -36,6 +36,12 @@ fn main() {
     let name = "Anirudh";
     let greeting = greet(name);
     println!("{}", greeting); // "Hello, Anirudh!"
+
+    let lowercase_count = count_lowercase_letters(&String::from("Hello World!"));
+    println!("Number of lowercase letters: {}", lowercase_count);
+
+    let uppercase_count = count_uppercase_letters(&String::from("Hello World!"));
+    println!("Number of uppercase letters: {}", uppercase_count);
 }
 fn count_vowels(s: &String) -> usize {
     let mut count = 0;
@@ -128,4 +134,22 @@ fn greet(name: &str) -> String {
     message.push_str(name);
     message.push('!');
     message
+}
+fn count_lowercase_letters(s: &String) -> usize {
+    let mut count = 0;
+    for c in s.chars() {
+        if c >= 'a' && c <= 'z' {
+            count += 1;
+        }
+    }
+    count
+}
+fn count_uppercase_letters(s: &String) -> usize {
+    let mut count = 0;
+    for c in s.chars() {
+        if c >= 'A' && c <= 'Z' {
+            count += 1;
+        }
+    }
+    count
 }
