@@ -42,6 +42,13 @@ fn main() {
 
     let uppercase_count = count_uppercase_letters(&String::from("Hello World!"));
     println!("Number of uppercase letters: {}", uppercase_count);
+
+    let replaced = replace_spaces_with_underscores(&String::from("Hello World from Rust"));
+    println!("Replaced string: {}", replaced);
+
+    let replaced2 =
+        replace_spaces_with_underscores(&String::from("   Leading and trailing spaces   "));
+    println!("Replaced string: {}", replaced2);
 }
 fn count_vowels(s: &String) -> usize {
     let mut count = 0;
@@ -152,4 +159,15 @@ fn count_uppercase_letters(s: &String) -> usize {
         }
     }
     count
+}
+fn replace_spaces_with_underscores(s: &String) -> String {
+    let mut result = String::new();
+    for c in s.chars() {
+        if c == ' ' {
+            result.push('_');
+        } else {
+            result.push(c);
+        }
+    }
+    result
 }
