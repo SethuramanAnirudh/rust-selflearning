@@ -49,6 +49,11 @@ fn main() {
     let replaced2 =
         replace_spaces_with_underscores(&String::from("   Leading and trailing spaces   "));
     println!("Replaced string: {}", replaced2);
+
+    let blank_string = String::from("     ");
+    let non_blank_string = String::from("  Not blank  ");
+    println!("Is blank: {}", is_blanck(&blank_string)); // true
+    println!("Is blank: {}", is_blanck(&non_blank_string)); // false
 }
 fn count_vowels(s: &String) -> usize {
     let mut count = 0;
@@ -170,4 +175,12 @@ fn replace_spaces_with_underscores(s: &String) -> String {
         }
     }
     result
+}
+fn is_blanck(s: &String) -> bool {
+    for c in s.chars() {
+        if c != ' ' {
+            return false;
+        }
+    }
+    true
 }
